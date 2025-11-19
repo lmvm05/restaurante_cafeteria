@@ -1,0 +1,448 @@
+/* ======================== */
+/* 1. RESET Y BASE          */
+/* ======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #333; /* Color de texto base */
+}
+
+/* ================================================= */
+/* 2. ESPACIADO OBLIGATORIO PARA MENÚ FIJO           */
+/* ================================================= */
+/* La altura de tu menú fijo es de aproximadamente 40px - 50px */
+main {
+    /* Ajusta el margen superior del main para que el contenido no quede oculto */
+    margin-top: 50px; /* Asegúrate de que sea suficiente para cubrir tu menú fijo */
+}
+
+/* ======================== */
+/* 3. NAVEGACIÓN FIJA (NAV) */
+/* ======================== */
+.main-nav {
+    background-color: rgb(53, 21, 21, 0.712); 
+    padding: 10px 0;
+    
+    position: fixed; 
+    top: 0;          
+    width: 100%;     
+    z-index: 1000;   
+    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+}
+
+.main-nav a {
+    text-decoration: none; 
+    color: white; 
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease; 
+}
+
+.main-nav a:hover {
+    background-color: #d1c12f; 
+}
+
+/* ======================== */
+/* 4. LOGO/BANNER           */
+/* ======================== */
+.logo-banner {
+    width: 100%; 
+    background-color: #333; 
+    text-align: center; 
+    /* El banner comienza JUSTO debajo del menú fijo (40px de altura del menú) */
+    margin-top: 40px; 
+}
+
+.logo-banner img {
+    width: 100%; 
+    max-height: 600px; 
+    object-fit: cover; 
+    display: block; 
+}
+
+/* ================================== */
+/* 5. SECCIÓN DE VIDEO CON FONDO OSCURO */
+/* ================================== */
+.video-section {
+    /* El color de fondo que solicitaste */
+    background-color: rgba(53, 21, 21, 0.712); 
+    padding: 40px 20px;
+    text-align: center;
+    color: white; /* Para que el texto sea legible sobre el fondo oscuro */
+    margin-bottom: 30px; /* Espacio debajo de esta sección */
+}
+
+.video-section h2 {
+    margin-bottom: 20px;
+    font-size: 2.2em;
+}
+
+.video-section video {
+    max-width: 100%; /* Asegura que el video no se salga del contenedor */
+    height: auto;
+    display: block; /* Elimina espacio extra debajo del video */
+    margin: 0 auto 20px auto; /* Centra el video y le da margen inferior */
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ================================== */
+/* 6. SECCIÓN DE NOVEDADES (FLYERS)   */
+/* ================================== */
+.novedades-section {
+    background-color: #ffffff; /* Fondo blanco solicitado */
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 30px auto; /* Centra la sección y le da margen */
+}
+
+.novedades-section h2 {
+    font-size: 2.5em;
+    color: rgba(53, 21, 21, 0.9); /* Un color que combine con tu tema oscuro */
+    margin-bottom: 30px;
+}
+
+.flyers-container {
+    display: flex; /* Para poner los flyers en una fila */
+    justify-content: space-around; /* Distribuye el espacio entre ellos */
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+.flyer-item {
+    /* El enlace actua como la tarjeta contenedora */
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 30%; /* Ocupa un tercio del espacio disponible */
+    min-width: 250px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    /* Propiedades para la animación al pasar el ratón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Efecto de elevación al pasar el ratón (HOVER) */
+.flyer-item:hover {
+    transform: translateY(-10px); /* Mueve la tarjeta 10px hacia arriba (se eleva) */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Sombra más grande y prominente */
+}
+
+.flyer-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.flyer-item h3 {
+    color: rgba(53, 21, 21, 0.9);
+    margin: 15px 10px 5px;
+    font-size: 1.4em;
+}
+
+.flyer-item p {
+    color: #555;
+    padding: 0 10px 15px;
+    font-size: 0.9em;
+}
+
+
+/* ======================== */
+/* 7. FOOTER                */
+/* ======================== */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: rgb(53, 21, 21, 0.712);
+    color: white;
+    margin-top: 40px;
+}
+/* ================================== */
+/* 9. ESTILOS PARA EL MODAL (LIGHTBOX)*/
+/* ================================== */
+.modal {
+    /* Oculto por defecto */
+    display: none; 
+    /* Posición fija encima de todo */
+    position: fixed; 
+    z-index: 2000; /* Alto z-index para estar sobre el menú fijo */
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; /* Habilitar scroll si la imagen es grande */
+    /* Fondo semi-transparente negro */
+    background-color: rgba(0,0,0,0.9); 
+}
+
+/* Contenido del Modal (La Imagen) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    /* Animación simple */
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* El botón de cerrar (la 'X') */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animación Zoom (opcional, pero mejora la UX) */
+@keyframes zoom {
+    from {transform:scale(0.1)} 
+    to {transform:scale(1)}
+}
+/* ================================================= */
+/* 10. MEDIA QUERIES (ADAPTABILIDAD) 📱            */
+/* ================================================= */
+
+/* --- Estilos para tabletas (max-width: 768px) --- */
+@media (max-width: 768px) {
+    /* 3. NAVEGACIÓN */
+    .main-nav ul {
+        /* Reduce el espacio entre los enlaces */
+        gap: 15px; 
+        /* Permite que la lista se envuelva si hay demasiados ítems */
+        flex-wrap: wrap; 
+    }
+    
+    /* 4. LOGO/BANNER */
+    .logo-banner img {
+        /* Reduce la altura máxima del banner en tabletas */
+        max-height: 400px; 
+    }
+    
+    /* 6. FLYERS (Dos columnas) */
+    .flyers-container {
+        /* Cambiamos a centrar los ítems cuando no caben 3 */
+        justify-content: center; 
+    }
+
+    .flyer-item {
+        /* Ocupa casi la mitad del ancho para mostrar 2 por fila */
+        width: 45%; 
+        min-width: 300px; /* Asegura un mínimo de tamaño legible */
+    }
+}
+
+/* --- Estilos para teléfonos móviles (max-width: 576px) --- */
+@media (max-width: 576px) {
+    /* 3. NAVEGACIÓN */
+    .main-nav {
+        /* Reduce el padding para ahorrar espacio vertical */
+        padding: 8px 0; 
+    }
+    .main-nav ul {
+        /* Asegura que los enlaces se apilen si son muy largos */
+        flex-direction: column; 
+        gap: 5px; /* Espacio mínimo vertical */
+    }
+    
+    /* Ajusta el espacio del MAIN debido al menú apilado (más alto) */
+    main {
+        margin-top: 100px; /* Aumenta el margen para el menú verticalizado */
+    }
+    
+    /* 4. LOGO/BANNER */
+    .logo-banner {
+        /* Ajusta el inicio del banner al nuevo tamaño del menú fijo */
+        margin-top: 95px; 
+    }
+    .logo-banner img {
+        /* Reduce aún más la altura para móviles */
+        max-height: 250px; 
+    }
+
+    /* 6. FLYERS (Una columna) */
+    .flyer-item {
+        /* Ocupa el ancho completo (o casi) */
+        width: 90%; 
+        min-width: unset; 
+    }
+
+    /* 5. SECCIONES GENERALES */
+    .video-section, .novedades-section, .content-section {
+        /* Reduce el padding general */
+        padding: 20px 10px; 
+    }
+
+    .video-section h2, .novedades-section h2 {
+        /* Reduce el tamaño de la fuente para mejor cabida */
+        font-size: 1.8em;
+    }
+    
+    /* 9. MODAL */
+    .close-btn {
+        /* Mueve la X para mejor acceso en pantallas pequeñas */
+        right: 15px; 
+        font-size: 30px;
+    }
+}
+/* ================================== */
+/* 11. ESTILOS PARA LA CONFIRMACIÓN DE PEDIDO */
+/* ================================== */
+.confirmacion-box {
+    /* Estilos base que ya tenías */
+    max-width: 600px;
+    margin: 50px auto; 
+    padding: 20px;
+    border: 1px solid #00a000; /* Borde verde más fuerte */
+    background-color: #e8ffe8; /* Fondo verde muy claro */
+    
+    /* Estilos adicionales para un diseño más limpio */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 160, 0, 0.15); /* Sombra suave verdosa */
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.confirmacion-box h2 {
+    color: #008000; /* Texto de encabezado verde oscuro */
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.confirmacion-box p {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.confirmacion-box a {
+    display: inline-block;
+    background-color: #008000;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.confirmacion-box a:hover {
+    background-color: #006400;
+}
+/* ================================== */
+/* 12. ESTILOS PARA EL FORMULARIO DE RESERVA */
+/* ================================== */
+.reservacion-form-section {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.reservacion-form-section h2 {
+    text-align: center;
+    color: rgba(53, 21, 21, 0.9);
+    margin-bottom: 10px;
+}
+
+#reservationForm label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+#reservationForm input,
+#reservationForm textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+#reservationForm button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: rgba(53, 21, 21, 0.9);
+    color: white;
+    padding: 15px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#reservationForm button[type="submit"]:hover {
+    background-color: rgba(30, 10, 10, 0.9);
+}
+
+/* Estilos para los mensajes de éxito/error */
+#message {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    display: none; 
+}
+
+#message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+#message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* Media Query de adaptación para móviles */
+@media (max-width: 700px) {
+    .reservacion-form-section {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+}
