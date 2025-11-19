@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web - Inicio</title>
+    <link rel="stylesheet" href="css/estilos.css"> 
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li> 
+                <li><a href="menu_simple.php">Menú</a></li>
+                <li><a href="cliente_pedido_online.php"> Hacer Pedido</a></li>
+                <li><a href="reservas.html">Reservarciones</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo-banner">
+    <a href="login.php" title="Acceso de Empleados">
+        <img src="img/logo.png" alt="Logotipo de mi sitio web como banner">
+    </a>
+</div>
+    </header>
+
+    <main>
+        <section class="video-section">
+            <h2>Nuestra Presentación</h2>
+            <video controls autoplay muted loop>
+                <source src="img/video.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+            <p>Descubre más sobre lo que hacemos.</p>
+        </section>
+
+        <section class="novedades-section">
+            <h2>Novedades</h2>
+            <div class="flyers-container">
+                <a href="img/flyer1.jpg" onclick="openModal(this.href); return false;" class="flyer-item">
+                    <img src="img/flyer1.jpg" alt="Flyer de Novedad 1">
+                </a>
+                
+                <a href="img/flyer2.jpg" onclick="openModal(this.href); return false;" class="flyer-item">
+                    <img src="img/flyer2.jpg" alt="Flyer de Novedad 2">
+                   
+                </a>
+                
+                <a href="img/flyer3.jpg" onclick="openModal(this.href); return false;" class="flyer-item">
+                    <img src="img/flyer3.jpg" alt="Flyer de Novedad 3">
+                </a>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ¡¡El Despertar!! Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span> 
+        <img class="modal-content" id="modalImage" src="" alt="Flyer en vista grande">
+    </div>
+
+    <script src="js/scripts.js"></script> 
+</body>
+</html>
